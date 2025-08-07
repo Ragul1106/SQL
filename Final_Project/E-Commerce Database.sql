@@ -59,8 +59,7 @@ INSERT INTO customers (name, email, phone_number, address, registration_date) VA
 ('Heera', 'heera@example.com', '9876000002', 'Mumbai, India', '2024-01-15'),
 ('Ravi ', 'ravi@example.com', '9876000003', 'Chennai, India', '2024-02-05'),
 ('Priya ', 'priya@example.com', '9876000004', 'Hyderabad, India', '2024-02-20'),
-('Kiran ', 'kiran@example.com', '9876000005', 'Ahmedabad, India', '2024-03-01');
-INSERT INTO customers (name, email, phone_number, address, registration_date) VALUES
+('Kiran ', 'kiran@example.com', '9876000005', 'Ahmedabad, India', '2024-03-01'),
 ('Rajan', 'rajan@example.com', '9876011111', 'Chennai, Tamil Nadu', '2024-01-05'),
 ('Ranjith Kumar', 'ranjith@example.com', '9876011112', 'Madurai, Tamil Nadu', '2024-01-10'),
 ('Libi Joseph', 'libi@example.com', '9876011113', 'Coimbatore, Tamil Nadu', '2024-01-12'),
@@ -78,8 +77,7 @@ INSERT INTO products (name, category, price, stock_quantity) VALUES
 ('Bluetooth Speaker', 'Electronics', 3000.00, 150),
 ('Office Chair', 'Furniture', 7000.00, 30),
 ('Water Bottle', 'Accessories', 500.00, 500),
-('Smartwatch', 'Electronics', 5000.00, 100);
-INSERT INTO products (name, category, price, stock_quantity) VALUES
+('Smartwatch', 'Electronics', 5000.00, 100),
 ('Wireless Mouse', 'Accessories', 750.00, 200),
 ('Smartphone X', 'Electronics', 18000.00, 50),
 ('Laptop Pro 15"', 'Electronics', 65000.00, 30),
@@ -92,14 +90,12 @@ INSERT INTO orders (customer_id, order_date, total_amount, order_status) VALUES
 (2, '2024-04-03', 10000.00, 'Shipped'),
 (3, '2024-04-05', 10500.00, 'Delivered'),
 (4, '2024-04-10', 500.00, 'Pending'),
-(5, '2024-04-12', 95000.00, 'Delivered');
-
-INSERT INTO orders (customer_id, order_date, total_amount, order_status) VALUES
-(16, '2024-04-01', 98000.00, 'Confirmed'),
-(17, '2024-04-03', 10000.00, 'Shipped'),
-(18, '2024-04-05', 10500.00, 'Delivered'),
-(19, '2024-04-10', 500.00, 'Pending'),
-(20, '2024-04-12', 95000.00, 'Delivered');
+(5, '2024-04-12', 95000.00, 'Delivered'),
+(6, '2024-04-01', 98000.00, 'Confirmed'),
+(7, '2024-04-03', 10000.00, 'Shipped'),
+(8, '2024-04-05', 10500.00, 'Delivered'),
+(9, '2024-04-10', 500.00, 'Pending'),
+(10, '2024-04-12', 95000.00, 'Delivered');
 
 
 
@@ -110,15 +106,14 @@ INSERT INTO order_details (order_id, product_id, quantity, subtotal_price) VALUE
 (2, 5, 1, 5000.00),
 (3, 3, 1, 7000.00),
 (3, 4, 1, 500.00),
-(3, 5, 1, 5000.00),
+(8, 5, 1, 5000.00),
 (4, 4, 1, 500.00),
-(5, 1, 1, 95000.00);
-INSERT INTO order_details (order_id, product_id, quantity, subtotal_price) VALUES
+(5, 1, 1, 95000.00),
 (1, 3, 1, 65000.00),
-(1, 1, 1, 750.00),
-(2, 2, 1, 18000.00),
-(3, 2, 1, 18000.00),
-(4, 4, 1, 5000.00);
+(6, 1, 1, 750.00),
+(6, 2, 1, 18000.00),
+(7, 2, 1, 18000.00),
+(9, 4, 1, 5000.00);
 
 
 INSERT INTO payments (order_id, payment_method, payment_status, payment_date) VALUES
@@ -126,26 +121,24 @@ INSERT INTO payments (order_id, payment_method, payment_status, payment_date) VA
 (2, 'UPI', 'Paid', '2024-04-03'),
 (3, 'Net Banking', 'Paid', '2024-04-05'),
 (4, 'COD', 'Pending', NULL),
-(5, 'Credit Card', 'Paid', '2024-04-12');
-INSERT INTO payments (order_id, payment_method, payment_status, payment_date) VALUES
-(1, 'Credit Card', 'Paid', '2024-03-01'),
-(2, 'UPI', 'Paid', '2024-03-05'),
-(3, 'Cash on Delivery', 'Paid', '2024-03-11'),
-(4, 'UPI', 'Pending', NULL),
-(5, 'Net Banking', 'Paid', '2024-03-21');
+(5, 'Credit Card', 'Paid', '2024-04-12'),
+(6, 'Credit Card', 'Paid', '2024-03-01'),
+(7, 'UPI', 'Paid', '2024-03-05'),
+(8, 'Cash on Delivery', 'Paid', '2024-03-11'),
+(9, 'UPI', 'Pending', NULL),
+(10, 'Net Banking', 'Paid', '2024-03-21');
 
 INSERT INTO shipments (order_id, shipment_date, delivery_status) VALUES
 (1, '2024-04-02', 'Processing'),
 (2, '2024-04-04', 'In Transit'),
 (3, '2024-04-06', 'Delivered'),
 (4, NULL, 'Pending'),
-(5, '2024-04-13', 'Delivered');
-INSERT INTO shipments (order_id, shipment_date, delivery_status) VALUES
-(1, '2024-03-02', 'Shipped'),
-(2, '2024-03-06', 'In Transit'),
-(3, '2024-03-12', 'Delivered'),
-(4, NULL, 'Pending'),
-(5, '2024-03-22', 'Delivered');
+(5, '2024-04-13', 'Delivered'),
+(6, '2024-03-02', 'Shipped'),
+(7, '2024-03-06', 'In Transit'),
+(8, '2024-03-12', 'Delivered'),
+(9, NULL, 'Pending'),
+(10, '2024-03-22', 'Delivered');
 
 
 SELECT c.name, o.order_id, o.order_date, o.total_amount, o.order_status
